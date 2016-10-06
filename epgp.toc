@@ -4,6 +4,7 @@
 ## Author: Alkis Evlogimenos
 ## Version: @project-version@
 ## SavedVariables: EPGP_DB
+## OptionalDeps: LibRealmInfo
 ## X-Category: Guild
 ## X-Website: http://code.google.com/p/epgp/
 ## X-Compatible-With: 70000
@@ -32,6 +33,7 @@ libs\LibBabble-Inventory-3.0\lib.xml
 libs\LibDeformat-3.0\lib.xml
 libs\LibJSON-1.0\lib.xml
 libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+libs\LibRealmInfo\LibRealmInfo.lua
 
 LibDebug-1.0.lua
 LibCoroutine-1.0.lua

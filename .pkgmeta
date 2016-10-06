@@ -1,4 +1,9 @@
 package-as: epgp
+
 ignore:
     - scripts
 
+externals:
+    libs/LibRealmInfo: git://git.curseforge.com/wow/librealminfo/mainline.git
+
+enable-nolib-creation: no
