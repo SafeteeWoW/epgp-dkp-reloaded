@@ -963,7 +963,7 @@ local function CreateEPGPSideFrame(self)
   epFrame:SetPoint("TOPRIGHT", gpFrame, "BOTTOMRIGHT", 0, -15)
 
   f:SetScript("OnShow", function(self)
-    self.title:SetText(self.name)
+    self.title:SetText(EPGP:GetDisplayCharacterName(self.name))
     if not epFrame.button then
       AddGPControls(gpFrame)
       gpFrame.button:SetScript(
