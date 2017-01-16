@@ -645,6 +645,18 @@ function lib:SetQualityThreshold(itemQuality)
   quality_threshold = itemQuality
 end
 
+function lib:IsNightholdReleased()
+	local region = LibStub("LibRealmInfo"):GetCurrentRegion();
+	local dateNow = date("%Y%m%d")
+
+	local nightholdRelease = "20170117"		-- The date for US region
+	if region == "EU" then
+		nightholdRelease = "20170118"
+	end
+
+	return dateNow >= nightholdRelease
+end
+
 function lib:GetValue(item)
   if not item then return end
 
@@ -731,10 +743,12 @@ function lib:GetValue(item)
     standard_ilvl = 710		-- HFC HC
     ilvl_denominator = 30
   else
-    standard_ilvl = 865		-- The Emerald Nightmare HC
-    ilvl_denominator = 30
-
---    standard_ilvl = 890	-- The Nighthold HC
+	if self:IsNightholdReleased() then
+		standard_ilvl = 890	-- The Nighthold HC
+	else
+		standard_ilvl = 865	-- The Emerald Nightmare HC
+	end
+	ilvl_denominator = 30
   end
   local multiplier = 1000 * 2 ^ (-standard_ilvl / ilvl_denominator)
   local gp_base = multiplier * 2 ^ (level/ilvl_denominator)
