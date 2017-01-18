@@ -555,7 +555,29 @@ local CUSTOM_ITEM_DATA = {
   [127968] = { 4, 705, "INVTYPE_TRINKET", true },
   
   -- T19 tokens
-    -- FILL HERE. No info yet available on WowHead
+  [143566] = { 4, 890, "INVTYPE_SHOULDER", true }, -- Conq
+  [143570] = { 4, 890, "INVTYPE_SHOULDER", true }, -- Vanq
+  [143576] = { 4, 890, "INVTYPE_SHOULDER", true }, -- Prot
+
+  [143564] = { 4, 890, "INVTYPE_LEGS", true },
+  [143569] = { 4, 890, "INVTYPE_LEGS", true },
+  [143574] = { 4, 890, "INVTYPE_LEGS", true },
+
+  [143565] = { 4, 890, "INVTYPE_HEAD", true },
+  [143568] = { 4, 890, "INVTYPE_HEAD", true },
+  [143575] = { 4, 890, "INVTYPE_HEAD", true },
+
+  [143563] = { 4, 890, "INVTYPE_HAND", true },
+  [143567] = { 4, 890, "INVTYPE_HAND", true },
+  [143573] = { 4, 890, "INVTYPE_HAND", true },
+
+  [143562] = { 4, 890, "INVTYPE_CHEST", true },
+  [143571] = { 4, 890, "INVTYPE_CHEST", true },
+  [143572] = { 4, 890, "INVTYPE_CHEST", true },
+
+  [143577] = { 4, 890, "INVTYPE_CLOAK", true },
+  [143578] = { 4, 890, "INVTYPE_CLOAK", true },
+  [143579] = { 4, 890, "INVTYPE_CLOAK", true },
 }
 
 -- Used to add extra GP if the item contains bonus stats
