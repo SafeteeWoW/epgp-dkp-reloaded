@@ -165,11 +165,6 @@ EPGP:SetDefaultModulePrototype(modulePrototype)
 function EPGP:CurrentTier()
 	local tier = math.floor(select(4, GetBuildInfo()) / 100)
 
-	-- Special handling to detect the release of Nighthold as it is not bound to new patch
-	if tier == 701 and GPLib:IsNightholdReleased() then
-		tier = tier .. "nh"
-	end
-
 	return tier
 end
 

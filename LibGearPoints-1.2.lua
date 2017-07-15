@@ -553,7 +553,7 @@ local CUSTOM_ITEM_DATA = {
   [127969] = { 4, 705, "INVTYPE_TRINKET", true },
   [127970] = { 4, 705, "INVTYPE_TRINKET", true },
   [127968] = { 4, 705, "INVTYPE_TRINKET", true },
-  
+
   -- T19 tokens
   [143566] = { 4, 875, "INVTYPE_SHOULDER", true }, -- Conq
   [143570] = { 4, 875, "INVTYPE_SHOULDER", true }, -- Vanq
@@ -578,6 +578,31 @@ local CUSTOM_ITEM_DATA = {
   [143577] = { 4, 875, "INVTYPE_CLOAK", true },
   [143578] = { 4, 875, "INVTYPE_CLOAK", true },
   [143579] = { 4, 875, "INVTYPE_CLOAK", true },
+
+  -- T20 tokens
+  [147329] = { 4, 900, "INVTYPE_SHOULDER", true }, -- Conq
+  [147328] = { 4, 900, "INVTYPE_SHOULDER", true }, -- Vanq
+  [147330] = { 4, 900, "INVTYPE_SHOULDER", true }, -- Prot
+
+  [147326] = { 4, 900, "INVTYPE_LEGS", true },
+  [147325] = { 4, 900, "INVTYPE_LEGS", true },
+  [147327] = { 4, 900, "INVTYPE_LEGS", true },
+
+  [147323] = { 4, 900, "INVTYPE_HEAD", true },
+  [147322] = { 4, 900, "INVTYPE_HEAD", true },
+  [147324] = { 4, 900, "INVTYPE_HEAD", true },
+
+  [147320] = { 4, 900, "INVTYPE_HAND", true },
+  [147319] = { 4, 900, "INVTYPE_HAND", true },
+  [147321] = { 4, 900, "INVTYPE_HAND", true },
+
+  [147317] = { 4, 900, "INVTYPE_CHEST", true },
+  [147316] = { 4, 900, "INVTYPE_CHEST", true },
+  [147318] = { 4, 900, "INVTYPE_CHEST", true },
+
+  [147332] = { 4, 900, "INVTYPE_CLOAK", true },
+  [147331] = { 4, 900, "INVTYPE_CLOAK", true },
+  [147333] = { 4, 900, "INVTYPE_CLOAK", true },
 }
 
 -- Used to add extra GP if the item contains bonus stats
@@ -667,18 +692,6 @@ function lib:SetQualityThreshold(itemQuality)
   quality_threshold = itemQuality
 end
 
-function lib:IsNightholdReleased()
-	local region = LibStub("LibRealmInfo"):GetCurrentRegion();
-	local dateNow = date("%Y%m%d")
-
-	local nightholdRelease = "20170117"		-- The date for US region
-	if region == "EU" then
-		nightholdRelease = "20170118"
-	end
-
-	return dateNow >= nightholdRelease
-end
-
 function lib:GetValue(item)
   if not item then return end
 
@@ -762,15 +775,14 @@ function lib:GetValue(item)
     standard_ilvl = 680
     ilvl_denominator = 30
   elseif version < 70000 then
-    standard_ilvl = 710		-- HFC HC
+    standard_ilvl = 710 -- HFC HC
+    ilvl_denominator = 30
+  elseif version < 70200 then
+    standard_ilvl = 890 -- The Nighthold HC
     ilvl_denominator = 30
   else
-	if self:IsNightholdReleased() then
-		standard_ilvl = 890	-- The Nighthold HC
-	else
-		standard_ilvl = 865	-- The Emerald Nightmare HC
-	end
-	ilvl_denominator = 30
+    standard_ilvl = 915 -- Tomb of Sargeras HC
+    ilvl_denominator = 30
   end
   local multiplier = 1000 * 2 ^ (-standard_ilvl / ilvl_denominator)
   local gp_base = multiplier * 2 ^ (level/ilvl_denominator)
