@@ -41,7 +41,7 @@ local function ShowPopup(player, item, quantity)
   if EPGP:GetEPGP(player)  then
     local itemName, itemLink, itemRarity, _, _, _, _, _, _, itemTexture = GetItemInfo(item)
     DLG:Spawn("EPGP_CONFIRM_GP_CREDIT", {name = player, item = itemLink, icon = itemTexture})
-  elseif  EPGP:GetEPGP(player .. "-" .. GetRealmName()) then
+  elseif  EPGP:GetEPGP(player .. "-" .. string.gsub(GetRealmName(), "%s+", "")) then
     local itemName, itemLink, itemRarity, _, _, _, _, _, _, itemTexture = GetItemInfo(item)
     DLG:Spawn("EPGP_CONFIRM_GP_CREDIT", {name = player .. "-" .. GetRealmName(), item = itemLink, icon = itemTexture})
   end
